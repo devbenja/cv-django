@@ -1,0 +1,204 @@
+* {
+    padding: 0;
+    box-sizing: border-box;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+body {
+    background: #081b29;
+    color: #ededed
+}
+
+h1, h2 { color: #00abf0;}
+
+.header {
+    width: 100%;
+    background: transparent;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 10%;
+    border-bottom: 1px solid #00abf0;
+}
+
+.header .logo {
+    font-size: 20px;
+    color: #ededed;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.header .navbar a {
+    font-size: 15px;
+    color: #ededed;
+    text-decoration: none;
+    font-weight: 500;
+    margin-left: 30px;
+    transition: .3s;
+}
+
+.header .navbar a:hover {
+    color: #00abf0;
+}
+
+.header img {
+    display: none;
+    position: absolute;
+    top: 25px;
+    right: 50px;
+    height: 25px;
+}
+/* Establecemos las opciones de grid a nuestro contenedor */
+
+.container {
+    display: grid;
+    width: 100%;
+    height: 100%;
+    grid-gap: 1rem;
+    grid-template-columns: 400px 1fr;
+    grid-template-rows: auto auto auto;
+    grid-template-areas:
+        "sidebar perfil perfil"
+        "sidebar experiencias experiencias"
+        "sidebar experiencias experiencias"
+        "sidebar referencias referencias";
+  }
+
+  /* Establecemos los grid-area */
+
+  .perfil {
+    grid-area: perfil;
+    border-bottom: 1px solid #00abf0;
+    padding: 30px;
+  }
+  
+  .sidebar {
+    grid-area: sidebar;
+    border-right: 1px solid #00abf0;
+    padding: 30px 50px 30px 50px;
+  }
+
+  .sidebar section ul li {
+    list-style: none;
+    padding-bottom: 10px;
+  }
+
+  .sidebar section ul {
+    margin-top: 10px;
+    margin-bottom: 40px;
+  }
+  
+  .experiencias {
+    grid-area: experiencias;
+    padding: 30px;
+    border-bottom: 1px solid #00abf0;
+  }
+
+  .experiencias article p {
+    text-align: justify;
+  }
+
+  .experiencias article {
+    margin-bottom: 40px;
+  }
+
+  .referencias {
+    grid-area: referencias;
+    padding: 30px;
+  }
+
+  .referencias ul li {
+    list-style: none;
+    padding-bottom: 10px;
+  }
+
+.contenedor {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.titulo {
+    margin-top: 50px;
+    margin-left: 130px;
+}
+
+.habilidades {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 70%;
+    height: 100%;
+}
+
+.habilidades ul {
+    width: 100vw;
+    border: 1px solid #ededed;
+    padding: 80px 50px 80px 50px;
+}
+
+.habilidades ul li {
+    text-align: center;
+    list-style: none;
+    margin-bottom: 20px;
+    color: #00abf0;
+}
+
+.habilidades .exp-detail {
+    text-decoration: none;
+    color: #00abf0;
+}
+
+.contenedor .habilidades ul p {
+    text-align: justify;
+    margin-bottom: 30px;
+}
+
+  @media screen and (max-width: 768px) {
+    .container {
+        grid-template-columns: 1fr; /* Cambiamos a una columna */
+        grid-template-areas: /*Cambiamos el orden del contenido*/
+            "perfil"
+            "experiencias"
+            "sidebar"
+            "referencias";
+    }
+
+    /* Algunos estilos extras para las secciones en dispositivos moviles */
+
+    .header {
+        border-bottom: 1px solid #00abf0;
+    }
+
+    .perfil {
+        padding: 20px;
+    }
+    
+    .sidebar {
+        border-right: none;
+        border-bottom: 1px solid #00abf0;
+        padding: 20px; 
+    }
+
+    .experiencias {
+        padding: 20px;
+    }
+
+    .referencias {
+        padding: 20px;
+    } 
+
+    .navbar a {
+        display: none;
+    }
+
+    .header img {
+        display: block;
+    }
+
+    .titulo {
+        margin-left: auto;
+        text-align: center;
+    }
+    
+}

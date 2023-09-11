@@ -1,0 +1,57 @@
+{% extends 'portafolio/base.html' %}
+
+{% block content %}
+    <main class="container">
+        <section class="perfil">
+            {% for per in perfil%}
+                <h1>{{ per.nombre }}</h1>
+                <p>{{ per.profesion }}</p>
+            {% endfor %}
+        </section>
+        <aside class="sidebar">
+            <section>
+                <h2>Contacto</h2>
+                <ul>
+                    {% for con in contacto %}
+                        <li>Telefono: {{ con.telefono }}</li>
+                        <li>Correo: {{ con.correo }}</li>
+                    {% endfor %}
+                </ul>
+            </section>
+            <section>
+                <h2>Aptitudes</h2>
+                <ul>
+                    {% for aps in aptitudes %}
+                        <li>{{ aps.nombre }}</li>
+                    {% endfor %}
+                </ul>
+            </section>
+            <section>
+                <h2>Habilidades</h2>
+                <ul>
+                    {% for hab in habilidades %}
+                        <li>{{ hab.nombre }}</li>
+                    {% endfor %}
+                </ul>
+            </section>
+        </aside>
+        <section class="experiencias">
+            <h2>Experiencias</h2>
+            {% for exp in experiencia %}
+                <article>
+                    <h3>{{ exp.nombre_empresa_proyecto }}</h3>
+                    <span>{{ exp.fecha_inicio }} - {{ exp.fecha_fin }}</span>
+                    <p>{{ exp.descripcion }}</p>
+                </article>
+            {% endfor %}
+        </section>
+        <section class="referencias">
+            <h2>Referencias</h2>
+            <ul>
+                {% for ref in referencia %}
+                    <li>{{ ref.nombre }}, {{ ref.puesto }} - {{ ref.empresa }}, Tel. {{ ref.telefono }}</li>
+                {% endfor %}
+            </ul>
+        </section>
+    </main>
+{% endblock %}

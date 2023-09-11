@@ -1,0 +1,23 @@
+{% load static %}
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Portafolio Benja</title>
+        <link rel="stylesheet" href="{% static 'css/index.css' %}">
+    </head>
+    <body>
+        <header class="header">
+            <a href="{% url 'curriculum' %}" class="Logo">.BENJA</a>
+            <nav class="navbar">
+                <a href="{% url 'Experiencias' %}">Experiencias</a>
+                <a href="{% url 'Habilidades' %}">Habilidades</a>
+                <a href="{% url 'Aptitudes' %}">Aptitudes</a>
+                <a href="{% url 'Referencias' %}">Referencias</a>
+            </nav>
+            <img src="{% static 'img/menu-btn.png' %}" alt="menu-hamburguesa">
+        </header>
+        {% block content %}
+        {% endblock %}
+    </body>
+</html>

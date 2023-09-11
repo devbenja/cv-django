@@ -1,0 +1,18 @@
+{% extends 'portafolio/base.html' %}
+
+{% block content %}
+    <div class="titulo">
+        <h2>Experiencias</h2>
+    </div>
+    <div class="contenedor">
+        <div class="habilidades">
+            <ul>
+                {% for exp in experiencia %}
+                    <li><a class="exp-detail" href="{% url 'experiencia_detail' pk=exp.pk %}">{{ exp.nombre_empresa_proyecto }}</a></li>
+                    <span>Periodo: {{ exp.fecha_inicio }} - {{ exp.fecha_fin }}</span>
+                    <p>{{ exp.descripcion }}</p>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+{% endblock %}
