@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-%38rhw=z=m*o-4==pd_zd#(&0x5%g(=917ib!vfpi@lxexr4w6
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1', '.pythonanywhere.com']
+ALLOWED_HOSTS = ['127.0.0.1', '*']
 
 
 # Application definition
@@ -37,7 +37,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'portafolio.apps.PortafolioConfig'
+    'portafolio.apps.PortafolioConfig',
+    'widget_tweaks',
 ]
 
 MIDDLEWARE = [
@@ -125,3 +126,5 @@ STATIC_ROOT = BASE_DIR / 'static'
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+LOGIN_REDIRECT_URL = '/'

@@ -3,14 +3,23 @@
 {% block content %}
     <div class="titulo">
         <h2>Experiencias</h2>
+        {% if user.is_authenticated %}
+            <a href="{% url 'create_experience' %}" class='btn-agregar'>Crear Experiencia</a>
+        {% endif %}
     </div>
     <div class="contenedor">
         <div class="habilidades">
             <ul>
                 {% for exp in experiencia %}
-                    <li><a class="exp-detail" href="{% url 'experiencia_detail' pk=exp.pk %}">{{ exp.nombre_empresa_proyecto }}</a></li>
+                    <li><a class="exp-detail" href="{% url 'experiencia_detail' pk=exp.pk %}">{{ exp.nombre_empresa_proyecto }}</a>
+                        {% if user.is_authenticated %}
+                            <a href="{% url 'delete_experience' exp.pk %}" class='btn-eliminar'>Eliminar</a>
+                            <a href="{% url 'edit_experience' exp.pk %}" class='btn-editar'>Editar</a>
+                        {% endif %}
+                    </li>
                     <span>Periodo: {{ exp.fecha_inicio }} - {{ exp.fecha_fin }}</span>
                     <p>{{ exp.descripcion }}</p>
+                    
                 {% endfor %}
             </ul>
         </div>

@@ -3,12 +3,20 @@
 {% block content %}
     <div class="titulo">
         <h2>Aptitudes</h2>
+        {% if user.is_authenticated %}
+            <a href="{% url 'crear_aptitud' %}" class='btn-agregar'>Crear Aptitud</a>
+        {% endif %}     
     </div>
     <div class="contenedor">
         <div class="habilidades">
             <ul>
                 {% for aps in aptitudes %}
-                    <li>{{ aps.nombre }}</li>
+                    <li>{{ aps.nombre }}
+                        {% if user.is_authenticated %} 
+                            <a href="{% url 'delete_aptitud' aps.pk %}" class="btn-eliminar">Eliminar</a> 
+                            <a href="{% url 'editar_aptitud' aps.pk %}" class="btn-editar">Editar</a>
+                        {% endif %}  
+                    </li>                  
                 {% endfor %}
             </ul>
         </div>

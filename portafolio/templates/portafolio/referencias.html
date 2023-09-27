@@ -3,14 +3,23 @@
 {% block content %}
     <div class="titulo">
         <h2>Referencias</h2>
+        {% if user.is_authenticated %}
+            <a href="{% url 'crear_referencia' %} " class="btn-agregar">Crear Referencia</a>
+        {% endif %}
     </div>
     <div class="contenedor">
         <div class="habilidades">
-            <ul>
+            <ul class="list-reference">
                 {% for ref in referencia %}
-                    <li>{{ ref.nombre }}, {{ ref.puesto }} - {{ ref.empresa }}, Tel. {{ ref.telefono }}</li>
+                    <li>{{ ref.nombre }}, {{ ref.puesto }} - {{ ref.empresa }}, Tel. {{ ref.telefono }}
+                        {% if user.is_authenticated %}
+                            <a href="{% url 'delete_referencia' ref.pk %}" class="btn-eliminar">Eliminar</a>
+                            <a href="{% url 'editar_referencia' ref.pk %}" class="btn-editar">Editar</a>
+                        {% endif %}                        
+                    </li>
                 {% endfor %}
             </ul>
         </div>
     </div>
 {% endblock %}
+

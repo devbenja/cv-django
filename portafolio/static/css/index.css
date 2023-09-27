@@ -55,7 +55,7 @@ h1, h2 { color: #00abf0;}
     width: 100%;
     height: 100%;
     grid-gap: 1rem;
-    grid-template-columns: 400px 1fr;
+    grid-template-columns: 400px 2fr;
     grid-template-rows: auto auto auto;
     grid-template-areas:
         "sidebar perfil perfil"
@@ -119,8 +119,11 @@ h1, h2 { color: #00abf0;}
 }
 
 .titulo {
-    margin-top: 50px;
-    margin-left: 130px;
+    padding: 80px 100px 10px 100px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
 }
 
 .habilidades {
@@ -129,6 +132,31 @@ h1, h2 { color: #00abf0;}
     align-items: center;
     width: 70%;
     height: 100%;
+}
+
+.titulo .btn-agregar{
+    padding: 7px;
+    background-color: #ededed;
+    color: black;
+    text-decoration: none;
+    border-radius: 10px;
+}
+
+.contenedor .habilidades ul li .btn-eliminar{
+    color: red;
+    background-color: #ededed;
+    text-decoration: none;
+    padding: 7px;
+    font-size: 12px;
+    border-radius: 10px;
+}
+.contenedor .habilidades ul li .btn-editar{
+    color: green;
+    background-color: #ededed;
+    text-decoration: none;
+    padding: 7px;
+    font-size: 12px;
+    border-radius: 10px;
 }
 
 .habilidades ul {
@@ -197,8 +225,11 @@ h1, h2 { color: #00abf0;}
     }
 
     .titulo {
-        margin-left: auto;
-        text-align: center;
+        justify-content: center;
+    }
+
+    .contenedor .habilidades ul li .btn-eliminar, .contenedor .habilidades ul li .btn-editar{
+        margin-top: 7px;
     }
     
 }
